@@ -2,14 +2,14 @@
 @section('content')
     <div class="card">
         <div class="card-head">
-            <h1>Modifier l'entre</h1>
+            <h1>Modifier une sortie</h1>
         </div>
         <div class="card-body">
-            <form action="{{url('/updateEntre/'.$entre->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('/updateSortie/'.$entre->id)}}" method="post" enctype="multipart/form-data">
                 
             @method('put')
             @csrf
-            <table style="display: inblock;">
+            <table >
                 <tbody>
                 
              <!--   <div class="col-md-4 mb-3">
@@ -21,12 +21,12 @@
                                 @endforeach    
                             </select>
                         </div> -->
-                    
-                    <tr >
-                        <label >Prix</label>
-                        <input type="number" name="Prix" class="col-md-5"  value="{{$entre->Prix}}">
+                    <div class="col-md-8 mb-3">
+                    <tr>
+                        <label class="col-md-2">Prix</label>
+                        <input type="number" name="Prix" class="col-md-5" value="{{$entre->Prix}}">
                     </tr>
-                    
+                    </div>
                     <div class="col-md-8 mb-3">
                     <tr>
                         <label class="col-md-2">Quantite</label>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="mb-3">
                     <tr>
-                    <input type="submit" style="width:fit-content;" value="Modifier" class="btn btn-success">
+                    <input type="submit" value="Modifier" style="width:fit-content;" class="btn btn-success">
                     </tr>
                     </div>
                 </tbody>

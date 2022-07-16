@@ -82,7 +82,8 @@ class entreController extends Controller
         $entre=DB::table('entres')
       ->leftJoin('produits','produits.id',"=",'entres.idprod')
       ->select('entres.id','produits.NomProd','entres.QuantiteE','entres.PrixE','entres.created_at')
-      ->where('entres.created_at',">=",$debut,'and','entres.created_at',"<=",$fin)
+      ->where('entres.created_at',">=",$debut)
+      ->where('entres.created_at',"<=",$fin)
       ->orderByDesc('entres.id')
       ->get();
       if (Auth::user()->role_as=='1') {

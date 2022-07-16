@@ -18,6 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <link rel="stylesheet" href="{{asset('/users/css/recherche.css')}}">
+  <link rel="stylesheet" href="{{asset('/users/css/entre.css')}}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -39,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
-                               {{ __('Logout') }} 
+                               {{ __('Logout') }}
          </a>
          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
@@ -47,7 +48,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </ul>
 
     <!-- Right navbar links -->
-   
+
   </nav>
   <!-- /.navbar -->
 
@@ -70,7 +71,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
-       
+
       </div>
 
       <!-- Sidebar Menu -->
@@ -82,13 +83,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a href="/dashboard" class="nav-link ">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Dashboard                
+                Dashboard
               </p>
             </a>
             <a href="{{url('/profile')}}" class="nav-link ">
               <i class="nav-icon fas fa-user"></i>
               <p>
-                profil                
+                profil
               </p>
             </a>
             <a href="{{url('/addcategorie')}}" class="nav-link">
@@ -105,19 +106,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{url('/produit')}}" class="nav-link ">
             <i class="nav-icon fas fa-plus-circle-fill"></i>
               <p>
-              produit     
+              produit
               </p>
             </a>
             <a href="{{url('/ListProd')}}" class="nav-link ">
               <i class="nav-icon fas fa-plus-circle-fill"></i>
                 <p>
-                Liste Des prodit   
+                Liste Des prodit
                 </p>
               </a>
               <a href="{{url('/entre')}}" class="nav-link ">
                 <i class="nav-icon fas fa-plus-circle-fill"></i>
                   <p>
-                  ajouter un entre 
+                  ajouter un entre
                   </p>
                 </a>
                 <a href="{{url('/ListeEntre')}}" class="nav-link ">
@@ -129,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="{{url('/Sortie')}}" class="nav-link ">
                 <i class="nav-icon fas fa-plus-circle-fill"></i>
                   <p>
-                  ajouter une  sortie 
+                  ajouter une  sortie
                   </p>
                 </a>
                 <a href="{{url('/ListeSortie')}}" class="nav-link ">
@@ -173,9 +174,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-   
+
     <!-- Default to the left -->
-    
+
   </footer>
 </div>
 <!-- ./wrapper -->

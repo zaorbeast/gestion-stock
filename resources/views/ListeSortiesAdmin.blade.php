@@ -13,18 +13,20 @@
                         <th>Quantite</th>
                         <th>Prix</th>
                         <th>Date </th>
+                        <th>Total</th>
                         <th>action</th>
                     </tr>
                     @foreach ($entre as $item)
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->NomProd}}</td>
-                        <td>{{$item->QuantiteS}}</td>
-                        <td>{{$item->PrixS}}</td>
-                        <td>{{$item->created_atS}}</td>
+                        <td>{{$item->Quantite}}</td>
+                        <td>{{$item->Prix}}</td>
+                        <td>{{$item->created_at}}</td>
+                        <td>{{$item->Quantite*$item->Prix}}</td>
                         <td>
-                            <a href="{{url('/editEntre/'.$item->id)}}" class="btn btn-primary">modifier l'entre</a>
-                            <a href="{{url('/deleteEntre/'.$item->id)}}" class="btn btn-danger">suprimer l'entre</a>
+                            <a href="{{url('/editSorte/'.$item->id)}}" class="btn btn-primary">modifier l'entre</a>
+                            <a href="{{url('/deleteSortie/'.$item->id)}}" class="btn btn-danger">suprimer l'entre</a>
                         </td>
                     </tr>
                         
@@ -49,5 +51,6 @@
         </div>
     </div> <div class="card">
         <div class="card-head">
+            @yield('content')
            
 @endsection

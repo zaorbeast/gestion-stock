@@ -20,8 +20,8 @@ class produitController extends Controller
         } else {
             return view('addProd',compact('categorie'));
         }
-        
-        
+
+
     }
     public function rapportprod( Request $request )
     {
@@ -32,7 +32,7 @@ class produitController extends Controller
         ->get();
         $sortie=sortie::join('produits','produits.id','=','sorties.idprod')
         ->where('produits.id','=',$idprod)
-        ->select('sorties.id','produits.NomProd','sorties.QuantiteS','sorties.PrixS','sorties.created_atS')
+        ->select('sorties.id','produits.NomProd','sorties.Quantite','sorties.Prix','sorties.created_at')
         ->get();
         $entre=entre::join('produits','produits.id','=','entres.idprod')
         ->where('produits.id','=',$idprod)
@@ -44,7 +44,7 @@ class produitController extends Controller
     public function rapport()
     {
         $produit=produit::all();
-       
+
         return view('rapport',compact('produit'));
     }
     public function insertion(Request $request)
@@ -61,15 +61,15 @@ class produitController extends Controller
      } else {
          return redirect('/listpro');
      }
-     
-     
+
+
     }
-    
+
 
 public function selectprod()
 {
 
-    
+
      $produit=DB::table('produits')
         ->leftJoin('categories','categories.id',"=",'produits.idcat')
         ->select('categories.NomCat','produits.id','produits.NomProd','produits.Quantite','produits.Prix','produits.newPrice','produits.created_at')
@@ -80,8 +80,8 @@ public function selectprod()
      } else {
         return view('listproduit',compact('produit'));
      }
-     
-     
+
+
 }
 public function edit($id)
 {
@@ -97,7 +97,7 @@ public function edit($id)
         $produits->Quantite=$request->input('Quantite');
         $produits->update();
         return redirect('/ListProd');
-        
+
     }
     public function deletePro($id)
     {
@@ -112,21 +112,22 @@ public function edit($id)
         $produit=DB::table('produits')
         ->leftJoin('categories','categories.id',"=",'produits.idcat')
         ->select('categories.NomCat','produits.id','produits.NomProd','produits.Quantite','produits.Prix','produits.newPrice','produits.created_at')
-        ->where('produits.created_at','>=',$debut,'and ','produits.created_at','<=',$fin)
+        ->where('produits.created_at',">=",$debut)
+        ->where('produits.created_at',"<=",$fin)
         ->orderByDesc('produits.id')
         ->get();
-        
-            
+
+
                 if (Auth::user()->role_as=='1') {
                     return view('ListeProd',compact('produit'));
                 } else {
                     return view('listproduit',compact('produit'));
                 }
-            
-            
-         
-        
-        
+
+
+
+
+
     }
-    
+
 }

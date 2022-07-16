@@ -28,29 +28,32 @@
                     @endforeach
                 </thead>
             </table>
-            <div class="container">
-    <a href="#" id="login" class="button">Rechercher</a>
-</div>
-<div class="popup">
-    <div class="popup-content">
-        <form action="/rechercheEntre">
-        <img src="{{asset('users/images/close.jfif')}}" alt="" class="close">
-        <input type="date" name="debut" placeholder="debut">
-        <input type="date" name="fin" placeholder="fin">
-        <input type="submit" value="Recherche" class="button">
-        </form>
+ 
+        
+    <div class="container">
+        <a href="#" id="login" class="button">Rechercher</a>
     </div>
-</div>
-<script>
-    document.getElementById("login").addEventListener("click", function() {
-        document.querySelector(".popup").style.display = "flex";
-    })
-    document.querySelector(".close").addEventListener("click", function() {
-        document.querySelector(".popup").style.display = "none";
-    })
-</script> 
+        <div class="popup">
+            <div class="popup-content">
+                <form action="/rechercheEntre">
+                    <img src="{{asset('users/images/close.jfif')}}" alt="" class="close">
+                    <input type="date" name="debut" placeholder="debut">
+                    <input type="date" name="fin" placeholder="fin">
+                    <input type="submit" value="Recherche" class="button">
+                </form>
             </div>
         </div>
-        </div>
-    </div>
+        <script>
+            document.getElementById("login").addEventListener("click", function()
+                     {
+                         document.querySelector(".popup").style.display = "flex";
+                     })
+            document.querySelector(".close").addEventListener("click", function() 
+                {
+                    document.querySelector(".popup").style.display = "none";
+                })
+        </script> 
+    
+</div>
+</div>
 @endsection

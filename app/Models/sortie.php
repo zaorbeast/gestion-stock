@@ -10,8 +10,9 @@ class sortie extends Model
     use HasFactory;
     protected $table='sorties';
     protected $fillable=[
-        'Quantite',
+        'QuantiteS',
         'Prix',
-        'idprod'
+        'idprod',
+        'creation'
     ];
 }

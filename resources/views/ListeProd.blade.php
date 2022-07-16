@@ -39,7 +39,7 @@
                 </thead>
             </table>
             <div class="input-group input-group-outline">
-              <form action="{{url('/rechercheSortie')}}">
+              <form action="{{url('/recherche')}}">
                 <div class="col-md-8 mb-3">
                     <label for="debut">debut de periode</label>
                     <input type="date" name="debut">                   
