@@ -6,17 +6,29 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="wrap-login100">
-                
+
                     <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
                         @csrf
 
                         <span class="login100-form-logo">
                             <i class="zmdi zmdi-landscape"></i>
                         </span>
-    
+
                         <span class="login100-form-title p-b-34 p-t-27">
                             Resgister
                         </span>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <input id="role" placeholder="Role" type="number" class="input100 @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
+                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                                @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <div class="col-md-6">
@@ -54,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">    
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="input100" placeholder="confirm password" name="password_confirmation" required autocomplete="new-password">
                                 <span class="focus-input100" data-placeholder="&#xf191;"></span>
@@ -69,7 +81,7 @@
                             </div>
                         </div>
                     </form>
-            
+
             </div>
         </div>
     </div>
