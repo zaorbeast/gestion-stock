@@ -4,6 +4,10 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteCond %{HTTP:XForwarded-Proto} =http [OR]
+    RewriteCond %{HTTP:X-Forwarded-Proto} =""
+    RewriteCond %{HTTPS}≠ On
+    RewriteRule ^https://%{HTTP_HOST}%{REQUEST_URL [L,R=301]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
