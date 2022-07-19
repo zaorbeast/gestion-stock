@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\entre;
 use App\Models\produit;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class entreController extends Controller
 {
@@ -20,7 +22,7 @@ class entreController extends Controller
     } else {
         return view('entreUser',compact('data'));
     }
-    
+
     }
   public function selection()
   {
@@ -33,22 +35,35 @@ class entreController extends Controller
       } else {
           return view('listEntreUser',compact('entre'));
       }
-      
-      
+
+
   }
     public function inserer(Request $request)
     {
-        $entre=new entre();
-        $entre->QuantiteE=$request->input('quantite');
-        $entre->PrixE=$request->input('prix');
-        $entre->idprod=$request->input('id');
-        $entre->save();
-        $id=$request->input('id');
-        $prod=produit::find($id);
-        $prod->Quantite=($prod->Quantite+$request->input('quantite'));
-        $prod->newPrice=$request->input('prix');
-        $prod->update();
-        return redirect('/ListeEntre');
+        $rules=array('quantite'=>'required');
+        $validator=Validator::make($request->all(),$rules);
+        if ($validator->fails()) {
+            return response()->json($validator,400);
+        } else {
+            try{
+                $entre=new entre();
+                $entre->QuantiteE=$request->input('quantite');
+                $entre->PrixE=$request->input('prix');
+                $entre->idprod=$request->input('id');
+                $entre->save();
+                $id=$request->input('id');
+                $prod=produit::find($id);
+                $prod->Quantite=($prod->Quantite+$request->input('quantite'));
+                $prod->newPrice=$request->input('prix');
+                $prod->update();
+                return redirect('/ListeEntre');
+            }catch(Exception $es){
+                return response()->json($es,400);
+            }
+        
+        }
+        
+
     }
     public function edit($id)
     {
@@ -66,8 +81,8 @@ class entreController extends Controller
      //   $entre->idprod=$request->input('idprod');
         $entre->update();
         return redirect('/ListeEntre');
-        
-        
+
+
     }
     public function deletEntre($id)
     {
@@ -91,7 +106,7 @@ class entreController extends Controller
       } else {
         return view('listEntreUser',compact('entre'));
       }
-      
-      
+
+
     }
 }
