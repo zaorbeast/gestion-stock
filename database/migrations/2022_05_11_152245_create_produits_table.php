@@ -19,6 +19,7 @@ class CreateProduitsTable extends Migration
             $table->unsignedBigInteger('idcat');
             $table->integer('Quantite');
             $table->integer('Prix');
+            $table->integer('NewPrice')->default('0');
             $table->timestamps();
             $table->foreign('idcat')->references('id')->on('categories')->cascadeOnDelete();
         });
