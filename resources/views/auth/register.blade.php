@@ -17,19 +17,6 @@
                         <span class="login100-form-title p-b-34 p-t-27">
                             Resgister
                         </span>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <input id="role" placeholder="Role" type="number" class="input100 @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" required autocomplete="role" autofocus>
-                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                                @error('role')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <input id="name" placeholder="Name" type="text" class="input100 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
