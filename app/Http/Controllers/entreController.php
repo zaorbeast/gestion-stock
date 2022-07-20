@@ -15,7 +15,7 @@ class entreController extends Controller
     public function index()
     {
         $data=DB::table('produits')
-        ->select('NomProd','id')
+        ->select('NomProd','id','Quantite')
         ->get();
     if (Auth::user()->role_as=='1') {
         return view('entreAdmin',compact('data'));
@@ -54,7 +54,7 @@ class entreController extends Controller
                 $id=$request->input('id');
                 $prod=produit::find($id);
                 $prod->Quantite=($prod->Quantite+$request->input('quantite'));
-                $prod->newPrice=$request->input('prix');
+                $prod->NewPrice=$request->input('prix');
                 $prod->update();
                 return redirect('/ListeEntre');
             }catch(Exception $es){

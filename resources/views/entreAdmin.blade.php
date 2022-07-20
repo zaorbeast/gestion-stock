@@ -9,16 +9,16 @@
                 @csrf
                 <table>
                 <tbody>
-                    
+
                         <div class="col-md-4 mb-3">
                             <select class="form-select" name="id">
                                 <option value="" type="placeholder" >Selectionner le produit</option>
                                 @foreach($data as $item)
-                                <option value="{{ $item->id}}">{{ $item->NomProd }}</option>
-                                @endforeach    
+                                <option value="{{ $item->id}}">{{ $item->NomProd}}: {{ $item->Quantite }}</option>
+                                @endforeach
                             </select>
                         </div>
-                    
+
                     <div >
                     <tr>
                         <td>
@@ -36,14 +36,14 @@
                         </td>
                     </tr>
                 </div>
-                
+
                     <tr>
                         <td>
                             <input type="submit" style="width: fit-content;" class="btn btn-success " value="Envoyer">
                             <input type="reset" class="btn btn-danger" value="Annuler">
                         </td>
                     </tr>
-                
+
                 </tbody>
                 </table>
             </form>

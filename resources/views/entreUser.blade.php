@@ -9,20 +9,20 @@
                 @csrf
                 <table>
                 <tbody>
-                    
+
                         <div class="col-md-4 mb-3">
                             <select class="form-select" name="id">
                                 <option value="" type="placeholder" >Selectionner un produit</option>
                                 @foreach($data as $item)
-                                <option value="{{ $item->id}}">{{ $item->NomProd }}</option>
-                                @endforeach    
+                                <option value="{{ $item->id}}">{{ $item->NomProd}}:{{$item->Quantite}}</option>
+                                @endforeach
                             </select>
                         </div>
-                    
+
                     <div class="col-md-8">
                     <tr>
                         <td>
-                            
+
                             <label class="col-md-4">quantite</label>
                             <input type="number" name="quantite" class="col-md-5">
                         </td>
