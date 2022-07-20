@@ -37,7 +37,7 @@ class sortieController extends Controller
     }
     public function insererSortie(Request $request)
     {
-        $rules=array('id'=>'required','Quantite'=>'required','Prix'=>'required');
+        $rules=array('id'=>'required','quantite'=>'required','prix'=>'required');
         $validator=Validator::make($request->all(),$rules);
         if ($validator->fails()) {
             return response()->json( $validator->errors(),400);
