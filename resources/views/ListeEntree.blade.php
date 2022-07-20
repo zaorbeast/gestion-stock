@@ -20,16 +20,16 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->NomProd}}</td>
-                        <td>{{$item->QuantiteE}}</td>
-                        <td>{{$item->PrixE}}</td>
+                        <td>{{$item->Quantite}}</td>
+                        <td>{{$item->Prix}}</td>
                         <td>{{$item->created_at}}</td>
-                        <td>{{$item->QuantiteE*$item->PrixE}}</td>
+                        <td>{{$item->Quantite*$item->Prix}}</td>
                         <td>
                             <a href="{{url('/editEntre/'.$item->id)}}" class="btn btn-primary">modifier l'entre</a>
                             <a href="{{url('/deleteEntre/'.$item->id)}}" class="btn btn-danger">suprimer l'entre</a>
                         </td>
                     </tr>
-                        
+
                     @endforeach
                 </thead>
             </table>
@@ -37,7 +37,7 @@
               <form action="{{url('/rechercheEntre')}}">
                 <div class="col-md-8 mb-3">
                     <label for="debut">debut de periode</label>
-                    <input type="date" name="debut">                   
+                    <input type="date" name="debut">
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="fin">fin de la periode</label>
@@ -45,7 +45,7 @@
                 </div>
                 <input type="submit" value="rechercher" class="btn btn-primary">
               </form>
-             
+
             </div>
         </div>
     </div>

@@ -19,17 +19,17 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->NomProd}}</td>
-                        <td>{{$item->QuantiteE}}</td>
-                        <td>{{$item->PrixE}}</td>
-                        <td>{{$item->created_at}}</td>  
-                        <td>{{$item->QuantiteE*$item->PrixE}}</td>                      
+                        <td>{{$item->Quantite}}</td>
+                        <td>{{$item->Prix}}</td>
+                        <td>{{$item->created_at}}</td>
+                        <td>{{$item->Quantite*$item->Prix}}</td>
                     </tr>
-                        
+
                     @endforeach
                 </thead>
             </table>
- 
-        
+
+
     <div class="container">
         <a href="#" id="login" class="button">Rechercher</a>
     </div>
@@ -48,12 +48,12 @@
                      {
                          document.querySelector(".popup").style.display = "flex";
                      })
-            document.querySelector(".close").addEventListener("click", function() 
+            document.querySelector(".close").addEventListener("click", function()
                 {
                     document.querySelector(".popup").style.display = "none";
                 })
-        </script> 
-    
+        </script>
+
 </div>
 </div>
 @endsection
