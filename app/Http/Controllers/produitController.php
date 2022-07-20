@@ -72,7 +72,7 @@ public function selectprod()
 
      $produit=DB::table('produits')
         ->leftJoin('categories','categories.id',"=",'produits.idcat')
-        ->select('categories.NomCat','produits.id','produits.NomProd','produits.Quantite','produits.Prix','produits.newPrice','produits.created_at')
+        ->select('categories.NomCat','produits.id','produits.NomProd','produits.Quantite','produits.Prix','produits.NewPrice','produits.created_at')
         ->orderByDesc('produits.id')
         ->get();
      if (Auth::user()->role_as=='1') {
