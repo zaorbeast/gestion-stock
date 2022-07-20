@@ -8,6 +8,7 @@ use App\Models\sortie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class sortieController extends Controller
 {
@@ -36,18 +37,24 @@ class sortieController extends Controller
     }
     public function insererSortie(Request $request)
     {
+        $rules=array('id'=>'required','Quantite'=>'required','Prix'=>'required');
+        $validator=Validator::make($request->all(),$rules);
+        if ($validator->fails()) {
+            return response()->json( $validator->errors(),400);
+        } else {
+            $entre = new sortie();
+            $entre->Quantite = $request->input('quantite');
+            $entre->Prix = $request->input('prix');
+            $entre->idprod = $request->input('id');
+            $entre->save();
+            $id = $request->input('id');
+            $prod = produit::find($id);
+            $prod->Quantite = ($prod->Quantite-$request->input('quantite'));
+            $prod->update();
+            return redirect('/ListeSortie');
+        }
 
-        $entre = new sortie();
-        $entre->Quantite = $request->input('quantite');
-        $entre->Prix = $request->input('prix');
-        $entre->idprod = $request->input('id');
-        $entre->creation = $request->input('creation');
-        $entre->save();
-        $id = $request->input('id');
-        $prod = produit::find($id);
-        $prod->Quantite = ($prod->Quantite-$request->input('quantite'));
-        $prod->update();
-        return redirect('/ListeSortie');
+
 
 
         return view('message', compact('message'));
@@ -61,12 +68,20 @@ class sortieController extends Controller
     }
     public function apdateSortie(Request $request, $id)
     {
-        $entre = sortie::find($id);
+        $rules=array('id'=>'required','Quantite'=>'required','Prix'=>'required');
+        $validator=Validator::make($request->all(),$rules);
+        if ($validator->fails()) {
+            return response()->json( $validator->errors(),400);
+        } else {
+            $entre = sortie::find($id);
         $entre->Quantite = $request->input('Quantite');
         $entre->Prix = $request->input('Prix');
         //   $entre->idprod=$request->input('idprod');
         $entre->update();
         return redirect('/ListeSortie');
+        }
+
+
     }
     public function deletSortie($id)
     {
@@ -76,7 +91,12 @@ class sortieController extends Controller
     }
     public function research(Request $request)
     {
-        $debut = $request->input('debut');
+        $rules=array('debut'=>'required','fin'=>'required');
+        $validator=Validator::make($request->all(),$rules);
+        if ($validator->fails()) {
+            return response()->json( $validator->errors(),400);
+        } else {
+            $debut = $request->input('debut');
         $fin = $request->input('fin');
         $entre = DB::table('sorties')
             ->leftJoin('produits', 'produits.id', "=", 'sorties.idprod')
@@ -90,5 +110,8 @@ class sortieController extends Controller
         } else {
             return view('ListeSortieUser', compact('entre'));
         }
+        }
+
+
     }
 }
