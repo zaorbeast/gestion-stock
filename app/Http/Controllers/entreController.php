@@ -46,7 +46,7 @@ class entreController extends Controller
         $id=$request->input('id');
         $prod=produit::find($id);
         $prod->Quantite=($prod->Quantite+$request->input('quantite'));
-        $prod->newPrice=$request->input('prix');
+        $prod->NewPrice=$request->input('prix');
         $prod->update();
         return redirect('/ListeEntre');
     }
