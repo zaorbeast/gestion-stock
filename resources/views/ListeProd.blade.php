@@ -25,16 +25,16 @@
                         <td>{{$item->NomCat}}</td>
                         <td>{{$item->Quantite}}</td>
                         <td>{{$item->Prix}}</td>
-                        <td>{{$item->newPrice}}</td>
+                        <td>{{$item->NewPrice}}</td>
                         <td>{{$item->created_at}}</td>
                         <td>{{$item->Quantite*$item->Prix}}</td>
-                       
+
                         <td>
                             <a href="{{url('/editProd/'.$item->id)}}" class="btn btn-primary">modifier</a>
                             <a href="{{url('/deleteProd/'.$item->id)}}" class="btn btn-danger">suprimer</a>
                         </td>
                     </tr>
-                        
+
                     @endforeach
                 </thead>
             </table>
@@ -42,7 +42,7 @@
               <form action="{{url('/recherche')}}">
                 <div class="col-md-8 mb-3">
                     <label for="debut">debut de periode</label>
-                    <input type="date" name="debut">                   
+                    <input type="date" name="debut">
                 </div>
                 <div class="col-md-8 mb-3">
                     <label for="fin">fin de la periode</label>
@@ -50,7 +50,7 @@
                 </div>
                 <input type="submit" value="rechercher" class="btn btn-primary">
               </form>
-             
+
             </div>
         </div>
     </div>
