@@ -33,6 +33,10 @@ Route::middleware(['auth','isAdmin'])->group(function ()
     {
      return view('admin.layout.admin_dash_layout');
     });
+    Route::get('/createuser',[userController::class,'createUser']);
+    Route::get('/grant/{id}',[userController::class,'grant']);
+    Route::get('/revoc/{id}',[userController::class,'revoc']);
+    Route::post('/creerUtilisateur',[userController::class,'create']);
     Route::get('/rapport',[produitController::class,'rapport']);
     Route::get('/rapports',[produitController::class,'rapportprod' ] );
     Route::post('/ajouterproduit',[produitController::class,'insertion']);
@@ -41,11 +45,11 @@ Route::middleware(['auth','isAdmin'])->group(function ()
     Route::get('/editProd/{id}',[produitController::class,'edit']);
     Route::put('/updateProd/{id}', [produitController::class,'updateprod']);
     Route::get('/deleteProd/{id}', [produitController::class,'deletePro']);
-    
+
     Route::get('/editEntre/{id}',[entreController::class,'edit']);
     Route::put('/updateEntre/{id}',[entreController::class,'apdateEntre']);
     Route::get('/deleteEntre/{d}', [entreController::class,'deletEntre']);
-    
+
     Route::get('/editSorte/{id}',[sortieController::class,'editSortie']);
     Route::put('/updateSortie/{id}',[sortieController::class,'apdateSortie']);
     Route::get('/deleteSortie/{d}', [sortieController::class,'deletSortie']);

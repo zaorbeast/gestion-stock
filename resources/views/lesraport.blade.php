@@ -49,9 +49,9 @@
                     <td>{{$sort->id}}</td>
                     <td>{{$sort->NomProd}}</td>
                     <td>{{$sort->Quantite}}</td>
-                    <td>{{$sort->PrixS}}</td>
+                    <td>{{$sort->Prix}}</td>
                     <td>{{$sort->created_at}}</td>
-                    <td>{{$sort->QuantiteS*$sort->Prix}}</td>
+                    <td>{{$sort->Quantite*$sort->Prix}}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -75,14 +75,14 @@
                 <th>Total</th>
             </thead>
             <tbody>
-                @foreach ($entre as $sort)
+                @foreach ($entre as $entres)
                 <tr>
-                    <td>{{$sort->id}}</td>
-                    <td>{{$sort->NomProd}}</td>
-                    <td>{{$sort->QuantiteE}}</td>
-                    <td>{{$sort->PrixE}}</td>
-                    <td>{{$sort->created_atE}}</td>
-                    <td>{{$sort->QuantiteE*$sort->PrixE}}</td>
+                    <td>{{$entres->id}}</td>
+                    <td>{{$entres->NomProd}}</td>
+                    <td>{{$entres->QuantiteE}}</td>
+                    <td>{{$entres->PrixE}}</td>
+                    <td>{{$entres->created_at}}</td>
+                    <td>{{$entres->QuantiteE*$entres->PrixE}}</td>
                     </tr>
                 @endforeach
             </tbody>

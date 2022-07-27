@@ -28,7 +28,7 @@ class entreController extends Controller
   {
       $entre=DB::table('entres')
       ->leftJoin('produits','produits.id',"=",'entres.idprod')
-      ->select('entres.id','produits.NomProd','entres.Quantite','entres.Prix','entres.created_at')
+      ->select('entres.id','produits.NomProd','entres.QuantiteE','entres.PrixE','entres.created_at')
       ->get();
       if (Auth::user()->role_as=='1') {
         return view('ListeEntree',compact('entre'));

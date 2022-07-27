@@ -1,80 +1,52 @@
-@extends('layouts.loginLayout')
+<!--<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
 
-@section('content')
-<div class="limiter">
-<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="wrap-login100">
+</head>
+<body> -->
+    @extends('admin.layout.admin_dash_layout')
+    @section('content')
 
-                    <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
+
+    <section >
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box" >
+            <div class="cercle"></div>
+            <div class="cercle"></div>
+            <div class="container" data-tilt>
+                <div class="form" >
+                    <h2>Sign Up</h2>
+                    <form action="{{url('/creerUtilisateur')}}" method="post">
                         @csrf
-
-                        <span class="login100-form-logo">
-                            <i class="zmdi zmdi-landscape"></i>
-                        </span>
-
-                        <span class="login100-form-title p-b-34 p-t-27">
-                            Resgister
-                        </span>
-
-
-
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <input id="name" placeholder="Name" type="text" class="input100 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="tbx">
+                            <input type="text" name="name"  placeholder="Full name" required>
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="email" required autocomplete="email">
-                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="tbx">
+                            <input type="email" name="email" placeholder="email" required>
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <input id="password" type="password" placeholder="password" class="input100 @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                        <div class="tbx">
+                            <input type="password" name="password" placeholder="password" required>
                         </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="input100" placeholder="confirm password" name="password_confirmation" required autocomplete="new-password">
-                                <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                            </div>
+                        <div class="tbx">
+                            <input type="password" name="passconfirm" placeholder="confirm password">
                         </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="login100-form-btn">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                        <div class="tbx">
+                            <input type="submit" value="Sign Up">
                         </div>
                     </form>
-
+                </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-@endsection
+    </section>
+    <script src="{{asset('frontend/js/vanilla-tilt.js')}}"></script>
+    @endsection
+    <!--
+</body>
+</html>-->

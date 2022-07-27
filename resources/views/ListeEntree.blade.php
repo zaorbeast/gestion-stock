@@ -20,10 +20,10 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->NomProd}}</td>
-                        <td>{{$item->Quantite}}</td>
-                        <td>{{$item->Prix}}</td>
+                        <td>{{$item->QuantiteE}}</td>
+                        <td>{{$item->PrixE}}</td>
                         <td>{{$item->created_at}}</td>
-                        <td>{{$item->Quantite*$item->Prix}}</td>
+                        <td>{{$item->QuantiteE*$item->PrixE}}</td>
                         <td>
                             <a href="{{url('/editEntre/'.$item->id)}}" class="btn btn-primary">modifier l'entre</a>
                             <a href="{{url('/deleteEntre/'.$item->id)}}" class="btn btn-danger">suprimer l'entre</a>

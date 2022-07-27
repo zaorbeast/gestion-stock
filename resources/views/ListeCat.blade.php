@@ -10,18 +10,20 @@
                     <tr>
                         <th>Id Categorie</th>
                         <th>Nom de la categorie</th>
+                        <th>date</th>
                         <th>Actions</th>
                     </tr>
                     @foreach ($categorie as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>{{$item->NomCat}}</td>
+                        <td>ate{{$item->NomCat}}</td>
+                        <td>{{$item->created_at}}</td>
                         <td>
                             <a href="{{url('/editCat/'.$item->id)}}" class="btn btn-primary">modifier la categorie</a>
                             <a href="{{url('/deleteCat/'.$item->id)}}" class="btn btn-danger">suprimer la categorie</a>
                         </td>
                     </tr>
-                        
+
                     @endforeach
                 </thead>
             </table>
