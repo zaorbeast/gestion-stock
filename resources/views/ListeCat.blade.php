@@ -16,7 +16,7 @@
                     @foreach ($categorie as $item)
                     <tr>
                         <td>{{$item->id}}</td>
-                        <td>ate{{$item->NomCat}}</td>
+                        <td>{{$item->NomCat}}</td>
                         <td>{{$item->created_at}}</td>
                         <td>
                             <a href="{{url('/editCat/'.$item->id)}}" class="btn btn-primary">modifier la categorie</a>

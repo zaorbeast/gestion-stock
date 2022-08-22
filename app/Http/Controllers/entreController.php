@@ -47,8 +47,8 @@ class entreController extends Controller
         } else {
             try{
                 $entre=new entre();
-                $entre->Quantite=$request->input('quantite');
-                $entre->Prix=$request->input('prix');
+                $entre->QuantiteE=$request->input('quantite');
+                $entre->PrixE=$request->input('prix');
                 $entre->idprod=$request->input('id');
                 $entre->save();
                 $id=$request->input('id');
@@ -96,7 +96,7 @@ class entreController extends Controller
         $fin=$request->input('fin');
         $entre=DB::table('entres')
       ->leftJoin('produits','produits.id',"=",'entres.idprod')
-      ->select('entres.id','produits.NomProd','entres.Quantite','entres.Prix','entres.created_at')
+      ->select('entres.id','produits.NomProd','entres.QuantiteE','entres.PrixE','entres.created_at')
       ->where('entres.created_at',">=",$debut)
       ->where('entres.created_at',"<=",$fin)
       ->orderByDesc('entres.id')

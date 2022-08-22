@@ -15,6 +15,7 @@
                                 <option value="" type="placeholder" >Selectionner un produit</option>
                                 @foreach($data as $item)
                                 <option value="{{ $item->id}}">{{ $item->NomProd }}: {{$item->Quantite}}</option>
+                                <input type="number" value="{{$item->id}}" hidden name="idProd">
                                 @endforeach
                             </select>
                         </div>
@@ -22,7 +23,7 @@
                     <div class="col-md-8">
                     <tr>
                         <td>
-                            <input type="number" value="{{$item->id}}" hidden name="idProd">
+
                             <label class="col-md-4">quantite</label>
                             <input type="number" name="quantite" class="col-md-5">
                         </td>
@@ -37,7 +38,7 @@
                     </tr>
                 </div>
                 <div class="col-md-8">
-                    
+
                 </div>
                 <div class="col-md-8">
                     <tr>

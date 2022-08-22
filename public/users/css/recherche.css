@@ -48,12 +48,14 @@ body {
 }
 
 .popup-content {
-    width: 500px;
+    width: 350px;
     height: 250px;
-    background-color: #fff;
+    background:linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.7));
     padding: 20px;
     border-radius: 5px;
     position: relative;
+    box-shadow: 0 15px 19px rgba(0, 0, 0, 0.3);
+    border: solid 1px #fff;
 }
 
 input {
@@ -95,17 +97,30 @@ input {
     top: 400px;
     left:50%;
 }
+.module{
+    display:  flex;
+    justify-content: center;
 
-.hejuru {
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    top: 50%;
+}
+.hejuru{
+    margin-top: 200px;
+    width: 500px;
+    height: 300px;
+    position: relative;
     display: flex;
-    box-sizing: border-box;
     justify-content: center;
     align-items: center;
     text-align: center;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background: rgba(85, 121, 197, 0.6);
+    border-radius: 0.5rem;
+    border: 1px solid #fff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+}
+
+.options{
+    border: none;
+    width: 100%;
+    background: linear-gradient(rgba(2552,255,255,0.4),rgba(255,255,255,0.7));
+    height: 2rem;
+    border-radius: 0.5rem;
 }
