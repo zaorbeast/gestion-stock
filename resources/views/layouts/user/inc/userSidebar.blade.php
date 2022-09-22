@@ -1,6 +1,6 @@
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
-     
+
       <a class="navbar-brand m-0" href="#" target="_blank">
         <span class="ms-1 font-weight-bold text-white">{{Auth::user()->name}}</span>
       </a>
@@ -25,30 +25,30 @@
          <a href="{{url('/ListeEntre')}}" class="nav-link text-white active bg-gradient-primary">liste des entres</a>
         </li>
         <li class="nav-item">
-        <a href="{{url('/Sortie')}}" class="nav-link text-white active bg-gradient-primary">Ajouter une sortie</a>  
+        <a href="{{url('/Sortie')}}" class="nav-link text-white active bg-gradient-primary">Ajouter une sortie</a>
         <a href="{{url('/ListeSortie')}}" class="nav-link text-white active bg-gradient-primary">liste des sortie</a>
-        </li>
-        <li class="nav-item">
-         
-        </li>
-        <li class="nav-item">
-         
-        </li>
-        <li class="nav-item mt-3">
-         
         </li>
         <li class="nav-item">
         
         </li>
         <li class="nav-item">
-         
+
+        </li>
+        <li class="nav-item mt-3">
+
         </li>
         <li class="nav-item">
-          
+
+        </li>
+        <li class="nav-item">
+
+        </li>
+        <li class="nav-item">
+
         </li>
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
-      
+
     </div>
   </aside>

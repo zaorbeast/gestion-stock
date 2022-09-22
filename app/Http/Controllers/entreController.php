@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\entre;
 use App\Models\produit;
-use Exception;
 use Illuminate\Http\Request;
+use App\Exports\reportExport;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class entreController extends Controller
@@ -28,7 +30,7 @@ class entreController extends Controller
   {
       $entre=DB::table('entres')
       ->leftJoin('produits','produits.id',"=",'entres.idprod')
-      ->select('entres.id','produits.NomProd','entres.Quantite','entres.Prix','entres.created_at')
+      ->select('entres.id','produits.NomProd','entres.QuantiteE','entres.PrixE','entres.created_at')
       ->get();
       if (Auth::user()->role_as=='1') {
         return view('ListeEntree',compact('entre'));
@@ -47,8 +49,8 @@ class entreController extends Controller
         } else {
             try{
                 $entre=new entre();
-                $entre->Quantite=$request->input('quantite');
-                $entre->Prix=$request->input('prix');
+                $entre->QuantiteE=$request->input('quantite');
+                $entre->PrixE=$request->input('prix');
                 $entre->idprod=$request->input('id');
                 $entre->save();
                 $id=$request->input('id');
@@ -65,6 +67,14 @@ class entreController extends Controller
 
 
     }
+
+    public function export()
+    {
+        return Excel::download(new reportExport, 'Entre.xlsx');
+    }
+
+
+
     public function edit($id)
     {
         $data=DB::table('produits')
@@ -96,7 +106,7 @@ class entreController extends Controller
         $fin=$request->input('fin');
         $entre=DB::table('entres')
       ->leftJoin('produits','produits.id',"=",'entres.idprod')
-      ->select('entres.id','produits.NomProd','entres.Quantite','entres.Prix','entres.created_at')
+      ->select('entres.id','produits.NomProd','entres.QuantiteE','entres.PrixE','entres.created_at')
       ->where('entres.created_at',">=",$debut)
       ->where('entres.created_at',"<=",$fin)
       ->orderByDesc('entres.id')
@@ -109,4 +119,6 @@ class entreController extends Controller
 
 
     }
+
+
 }

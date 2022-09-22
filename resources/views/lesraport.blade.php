@@ -88,10 +88,10 @@ $PrixSortie=0;
                 <tr>
                     <td>{{$entres->id}}</td>
                     <td>{{$entres->NomProd}}</td>
-                    <td>{{$entres->Quantite}}<?php $entree=$entree + $entres->Quantite; ?></td>
-                    <td>{{$entres->Prix}}<?php $prixEntres=$prixEntres + $entres->Prix; ?></td>
+                    <td>{{$entres->QuantiteE}}<?php $entree=$entree + $entres->QuantiteE; ?></td>
+                    <td>{{$entres->PrixE}}<?php $prixEntres=$prixEntres + $entres->PrixE; ?></td>
                     <td>{{$entres->created_at}}</td>
-                    <td>{{$entres->Quantite*$entres->Prix}}  </td>
+                    <td>{{$entres->QuantiteE*$entres->PrixE}}  </td>
                     </tr>
                 @endforeach
             </tbody>

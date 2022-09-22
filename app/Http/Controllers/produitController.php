@@ -36,7 +36,7 @@ class produitController extends Controller
         ->get();
         $entre=entre::join('produits','produits.id','=','entres.idprod')
         ->where('produits.id','=',$idprod)
-        ->select('entres.id','produits.NomProd','entres.Quantite','entres.Prix','entres.created_at')
+        ->select('entres.id','produits.NomProd','entres.QuantiteE','entres.PrixE','entres.created_at')
         ->get();
         return view('lesraport',compact('prod','sortie','entre'));
 

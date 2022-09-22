@@ -19,10 +19,10 @@
                     <tr>
                         <td>{{$item->id}}</td>
                         <td>{{$item->NomProd}}</td>
-                        <td>{{$item->Quantite}}</td>
-                        <td>{{$item->Prix}}</td>
+                        <td>{{$item->QuantiteE}}</td>
+                        <td>{{$item->PrixE}}</td>
                         <td>{{$item->created_at}}</td>
-                        <td>{{$item->Quantite*$item->Prix}}</td>
+                        <td>{{$item->QuantiteE*$item->PrixE}}</td>
                     </tr>
 
                     @endforeach

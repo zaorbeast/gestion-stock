@@ -76,3 +76,5 @@ Route::get('/userProfile', [userController::class,'profiles']);
 Route::get('/recherche', [produitController::class,'research']);
 Route::get('/rechercheSortie',[sortieController::class,'research']);
 Route::get('/rechercheEntre', [entreController::class,'research']);
+Route::get('/exporterEntre',[entreController::class,'export']);
+Route::put('/changePass/{id}',[userController::class,'changePass']);
